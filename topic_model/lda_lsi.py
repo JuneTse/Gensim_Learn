@@ -91,3 +91,7 @@ if __name__=="__main__":
         d=lda.get_term_topics(i,minimum_probability=1e-8)
         print(dictionary.id2token[i],d)
     
+    bow=[dictionary.doc2bow("就是 不 信任 我".split())]
+    vec=lsi[bow]
+    dense=gensim.matutils.corpus2dense(vec,num_terms=100)
+    print(dense.shape)
